@@ -1,0 +1,21 @@
+<:Title>
+  Todos
+
+<:Body>
+  <h1> What should I do today?</h1>
+
+  <form e-submit="add_task">
+    <div class="form-group">
+      <input type="text" class="form-control" value="{{ page._new_task }}">
+    </div>
+  </form>
+
+  <ul>
+    {{ _tasks.each do |task| }}
+    <li class="{{if task._checked}} checked {{end}}">
+      <input type="checkbox" checked="{{ task._checked}}">
+      {{ task._label }}
+    </li>
+    {{ end }}
+    <li>{{ page._new_task }}</li>
+  </ul>
